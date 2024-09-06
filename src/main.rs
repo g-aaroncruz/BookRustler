@@ -2,6 +2,7 @@ use clap::Parser;
 use reqwest;
 use std::error::Error;
 use serde::Deserialize;
+mod sqinterface;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -39,5 +40,6 @@ fn main() {
         }
         Err(e) => println!("Error: {}", e),
     }
+    sqinterface::open_dbs();
 
 }
